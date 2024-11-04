@@ -1,5 +1,5 @@
 use wasm_bindgen::prelude::*;
-use amm_sdk_netsblox::amm::storage::Storage;
+use amm_sdk_netsblox::amm_sdk::storage::Storage;
 
 fn translate(content: &[u8], storage: Storage) -> Result<String, JsError> {
     console_error_panic_hook::set_once();
