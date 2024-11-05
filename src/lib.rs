@@ -3,7 +3,7 @@ use amm_sdk_netsblox::amm_sdk::storage::Storage;
 
 fn translate(content: &[u8], storage: Storage) -> Result<String, JsError> {
     console_error_panic_hook::set_once();
-    let composition = storage.load_data(content).map_err(|e| JsError::new(&format!("parse error: {e}")))?;
+    let composition = storage.load_data(content.to_owned()).map_err(|e| JsError::new(&format!("parse error: {e}")))?;
     amm_sdk_netsblox::translate(&composition).map_err(|e| JsError::new(&format!("translate error: {e:?}")))
 }
 
